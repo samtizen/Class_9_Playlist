@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="Tizen Mobile Web Basic Template" />
+
+    <title>Tizen Mobile Web Basic Application</title>
+    <link rel="stylesheet" href="lib/tau/mobile/theme/default/tau.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/image_viewer_style.css" />
+</head>
+
+<body>
+    <div class="ui-page ui-page-active" id="image-viewer-main">
+        <div class="ui-header">
+            <h1>File List</h1>
+        </div>
+        <div class="ui-content">
+            <div class="ui-header">
+                <h1>Add Images to Playlist</h1>
+            </div>
+            <div class="ui-content">
+                <div id="image-viewer-playlist" style="text-align: center"></div>
+            </div>
+        </div>
+        <div id="file-viewer-modify-footer" class="ui-footer" style="background-color:rgba(46, 139, 153, 1)">
+            <div class="row-grid">
+                <div class="col-grid-3" style="text-align:center">
+                    <a href="#" class="icon-del icon-active" id="btn-delete-playlist-items"></a>
+                    <div class="ui-footer-btn-text" style="margin-top:-5px;">Remove</div>
+                </div>
+                <div class="col-grid-3" style="text-align:center;">
+                </div>
+                <div class="col-grid-3" style="text-align:center;">
+                </div>
+            </div>
+        </div>
+        <div id="ui-floatingaction" class="ui-floatingactions" style="bottom:100px; z-index: 150;">
+            <div style="line-height:57px;">
+                <div id="btn-show-camera-app" style="vertical-align: middle; margin-right: 5px;" class="icon-camera icon-active"></div>
+                <div id="btn-show-image-viewer-add-page" style="vertical-align: middle;" class="icon-add icon-active"></div>
+            </div>
+        </div>
+
+    </div>
+    <div class="ui-page" id="image-viewer-contents">
+        <div class="ui-header">
+            <h1>Add Images to Playlist</h1>
+        </div>
+        <div class="ui-content">
+            <div id="image-viewer-content-list" style="text-align: center"></div>
+        </div>
+        <div id="image-viewer-contents-footer" class="ui-footer" style="background-color:rgba(46, 139, 153, 1)">
+            <div class="row-grid">
+                <div class="col-grid-3" style="text-align:center">
+                    <a href="#" class="icon-back icon-active" id="btn-back-to-image-viewer-main"></a>
+                    <div class="ui-footer-btn-text" style="margin-top:-5px;">Back</div>
+                </div>
+                <div class="col-grid-3" style="text-align:center;">
+                </div>
+                <div class="col-grid-3" style="text-align:center;">
+                    <a href="#" class="icon-add icon-active" id="btn-add-images-to-playlist"></a>
+                    <div class="ui-footer-btn-text" style="margin-top:-5px;">Add</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ui-page" id="image-viewer-add-image-page">
+        <div class="ui-header">
+            <h1>Add Image Description</h1>
+        </div>
+        <div class="ui-content">
+            <div id="div-txt-descr">
+                <label>Description</label>
+                <br>
+                <textarea id="txt-descr-add-page" name="image-content" cols="40" placeholder="Enter image description" style="height: 100px !important;"></textarea>
+            </div>
+            <div>
+                <label>Position</label>
+                <br>
+                <label id="lbl-add-image-page-lat"></label>
+                <br>
+                <label id="lbl-add-image-page-lon"></label>
+            </div>
+            <div style="margin: 10px 0px 10px 0px;">
+            	<input type="checkbox" id="btn-location-add" class="ui-checkbox"/>
+            	<span>Use Location Name</span>
+            	<div id="div-location-add" style="margin: 5px 0px 5px 0px; display:none;">
+            		<input id="txt-location-name-add" type="text"></input>
+            	</div>
+            </div>
+            <div style="text-align: center;">
+                <label>Image</label>
+                <br>
+                <img id="img-add-page" src="" width="90%" />
+            </div>
+
+        </div>
+        <div id="image-viewer-add-image-page-footer" class="ui-footer" style="background-color:rgba(46, 139, 153, 1)">
+            <div class="row-grid">
+                <div class="col-grid-3" style="text-align:center">
+                    <a href="#" class="icon-back icon-active" id="btn-back-to-image-viewer-main-from-add-image-page"></a>
+                    <div class="ui-footer-btn-text" style="margin-top:-5px;">Back</div>
+                </div>
+                <div class="col-grid-3" style="text-align:center;">
+                </div>
+                <div class="col-grid-3" style="text-align:center;">
+                    <a href="#" class="icon-add icon-active" id="btn-add-image-to-playlist"></a>
+                    <div class="ui-footer-btn-text" style="margin-top:-5px;">Playlist</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ui-page" id="image-viewer-test-page">
+        <div class="ui-header">
+            <h1>File List</h1>
+        </div>
+        <div class="ui-content">
+            <button id="btn-get-filter">Get Filter</button>
+            <button id="btn-create-playlist">CreateFile</button>
+            <button id="btn-get-content-list">GetContentList</button>
+            <button id="btn-get-image-list">GetImageList</button>
+            <button id="btn-add-image-list">AddImagesToPlaylist</button>
+            <button id="btn-remove-image-list">RemoveImagesFromPlaylist</button>
+            <button id="btn-delete-file">RemoveFile</button>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="lib/tau/mobile/js/tau.js"></script>
+    <script type="text/javascript" src="lib/jquery.js"></script>
+    <script type="text/javascript" src="js/image_content_view_prot.js"></script>
+    <script type="text/javascript" src="js/image_playlist_view_prot.js"></script>
+    <script type="text/javascript" src="js/image_content_view_prot.js"></script>
+    <script type="text/javascript" src="js/image_content_prot.js"></script>
+    <script type="text/javascript" src="js/image_playlist_prot.js"></script>
+    <script type="text/javascript" src="js/image_main.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+</body>
+
+</html>
